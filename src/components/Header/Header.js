@@ -8,14 +8,6 @@ import {Link} from "react-router-dom"
             haySesion: false
         }
     }
-    componentDidMount(){
-        let cookies = document.cookie
-        if (cookies.includes("session=")){
-            this.setState({
-                haySesion: true
-            })
-        }
-    }
     render() {
     return (
          <nav>
