@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {Link} from "react-router-dom"
 
  class Header extends Component {
@@ -12,7 +12,7 @@ import {Link} from "react-router-dom"
     return (
          <nav>
             <ul className = "nav nav-tabs my-4">
-                <li className = "nav-item">
+                <li className   = "nav-item">
                     <Link className = "nav-link" to = "/home">Home</Link>
                 </li>
                 <li className = "nav-item">
@@ -33,7 +33,7 @@ import {Link} from "react-router-dom"
                 : null}
                 {!this.state.haySesion ?
                 <li className = "nav-item">
-                   <Link className  ="nav-link" to = "/login">Login</Link>
+                   <Link className = "nav-link" to = "/login">Login</Link>
                 </li>
                 : null}
             </ul>
