@@ -30,7 +30,7 @@ class SeccionPeliculasPopulares extends Component {
 
    render() {
     return (
-      <section className="row cards">
+      <section className="row cards cards4">
         {this.state.peliculas.length > 0 ? (
           this.state.peliculas.map(pelicula => (
             <Card

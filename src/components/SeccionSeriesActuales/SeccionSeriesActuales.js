@@ -30,7 +30,7 @@ class SeccionSeriesActuales extends Component {
 
   render() {
     return (
-      <section className="row cards">
+      <section className="row cards cards6">
         {this.state.series.length > 0 ? (
           this.state.series.map(serie => (
             <Card
