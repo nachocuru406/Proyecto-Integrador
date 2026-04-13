@@ -30,21 +30,23 @@ class SeccionPeliculasPopulares extends Component {
 
    render() {
     return (
-      <section className="row cards cards4">
-        {this.state.peliculas.length > 0 ? (
-          this.state.peliculas.map(pelicula => (
-            <Card
-              key={pelicula.id}
-              image={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
-              title={pelicula.title}
-              description={pelicula.overview}
-              link={`movie.html?id=${pelicula.id}`}
-            />
-          ))
-        ) : (
-          <p>Cargando...</p>
-        )}
-      </section>
+      <div className='container'>
+        <section className="row cards cards4">
+          {this.state.peliculas.length > 0 ? (
+            this.state.peliculas.map(pelicula => (
+              <Card
+                key={pelicula.id}
+                image={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
+                title={pelicula.title}
+                description={pelicula.overview}
+                link={`movie.html?id=${pelicula.id}`}
+              />
+            ))
+          ) : (
+            <p>Cargando...</p>
+          )}
+        </section>
+      </div>
     );
   }
 }

@@ -14,7 +14,7 @@ class Home extends Component {
         this.state = {
         };
     }
-
+    
     render() {
         return (
             <React.Fragment>
@@ -22,6 +22,7 @@ class Home extends Component {
                 <Header/>
 
                 <section className="text-center my-5">
+                    <Buscador/>
                 </section>
 
                 <section className="my-5">

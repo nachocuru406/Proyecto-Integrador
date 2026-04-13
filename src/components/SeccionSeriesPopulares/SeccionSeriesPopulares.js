@@ -30,21 +30,23 @@ class SeccionSeriesPopulares extends Component {
 
   render() {
     return (
-      <section className="row cards cards5">
-        {this.state.series.length > 0 ? (
-          this.state.series.map(serie => (
-            <Card
-              key={serie.id}
-              image={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-              title={serie.name} 
-              description={serie.overview}
-              link={`serie.html?id=${serie.id}`}
-            />
-          ))
-        ) : (
-          <p>Cargando...</p>
-        )}
-      </section>
+      <div className='container'>
+        <section className="row cards cards5">
+          {this.state.series.length > 0 ? (
+            this.state.series.map(serie => (
+              <Card
+                key={serie.id}
+                image={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                title={serie.name} 
+                description={serie.overview}
+                link={`serie.html?id=${serie.id}`}
+              />
+            ))
+          ) : (
+            <p>Cargando...</p>
+          )}
+        </section>
+      </div>
     );
   }
 }
