@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import {Link} from "react-router-dom"
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
  class Header extends Component {
     constructor(props){
@@ -23,7 +23,7 @@ import {Link} from "react-router-dom"
                 </li>
                 {this.state.haySesion ?
                 <li className = "nav-item">
-                    <Link className = "nav-link" to = "/favoritos">Favoritos</Link>
+                    <Link className = "nav-link" to = "/favoritas">Favoritas</Link>
                 </li>
                 : null}
                 {!this.state.haySesion ? 
@@ -42,4 +42,4 @@ import {Link} from "react-router-dom"
   }
 }
 
-export default Header
+export default Header;

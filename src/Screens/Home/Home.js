@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Buscador from '../../components/Buscador/Buscador';
 import SeccionPeliculasPopulares from '../../components/SeccionPeliculasPopulares/SeccionPeliculasPopulares';
+import SeccionPeliculasActuales from '../../components/SeccionPeliculasActuales/SeccionPeliculasActuales'
 import SeccionSeriesPopulares from '../../components/SeccionSeriesPopulares/SeccionSeriesPopulares';
+import SeccionSeriesActuales from '../../components/SeccionSeriesActuales/SeccionSeriesActuales';
 import Footer from '../../components/Footer/Footer';
 
 
-class Favoritas extends Component {
+class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,22 +22,26 @@ class Favoritas extends Component {
                 <Header/>
 
                 <section className="text-center my-5">
-                    <div className="col-md-8">
-                    </div>
                 </section>
 
                 <section className="my-5">
-                    <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2 className="h3">Películas favoritas</h2>
-                    </div>
+                    <h2 className="alert alert-primary">Popular movies this week</h2>
                     <SeccionPeliculasPopulares/>
                 </section>
 
                 <section className="my-5">
-                    <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2 className="h3">Series favoritas</h2>
-                    </div>
+                    <h2 className="alert alert-primary">Movies now playing</h2>
+                    <SeccionPeliculasActuales/>
+                </section>
+
+                <section className="my-5">
+                    <h2 className="alert alert-warning">Popular TV shows this week</h2>
                     <SeccionSeriesPopulares/>
+                </section>
+
+                <section className="my-5">
+                    <h2 className="alert alert-warning">TV shows airing today</h2>
+                    <SeccionSeriesActuales/>
                 </section>
                 <Footer/>
             </React.Fragment>
@@ -43,4 +49,4 @@ class Favoritas extends Component {
     }
 }
 
-export default Favoritas;
+export default Home;
