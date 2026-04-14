@@ -55,13 +55,16 @@ nav {
     grid-template-columns: 5fr 1fr;
     column-gap: 5px;
 }
+
 .filter-form {
     grid-template-columns: 1fr;
 }
+
 .search-form .btn-sm{
     line-height: 1;
     font-size: 0.9rem;
 }
+
 .search-form input,
 .filter-form input {
     border: 1px solid #ccc;
@@ -72,6 +75,7 @@ nav {
     font-size: 1rem;
     padding-bottom: 4px;
 }
+
 .filter-form input {
     line-height: 1.5;
 }
