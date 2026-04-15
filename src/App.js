@@ -6,6 +6,7 @@ import Peliculas from "./Screens/Peliculas/Peliculas";
 import Series from "./Screens/Series/Series";
 import Registro from "./Screens/Registro/Registro"
 import Login from "./Screens/Login/Login";
+import DetallePelicula from "./Screens/DetallePelicula/DetallePelicula";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/Series" component={Series}/>
           <Route path="/Registro" component={Registro}/>
           <Route path="/Login" component={Login}/>
+          <Route path="/movie/:id" component={DetallePelicula} />
         </Switch>
   );
 }
