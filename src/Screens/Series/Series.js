@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
-import Buscador from '../../components/Buscador/Buscador';
-import SeccionSeriesPopulares from '../../components/SeccionSeriesPopulares/SeccionSeriesPopulares';
+import BuscadorPeliculasSeries from '../../components/BuscadorPeliculasSeries/BuscadorPeliculasSeries';
+import SeccionSeries from '../../components/SeccionSeries/SeccionSeries';
 import Footer from '../../components/Footer/Footer';
 
 
@@ -11,26 +11,28 @@ class Series extends Component {
         this.state = {
         };
     }
-
+    
     render() {
         return (
-            <React.Fragment>
+            <div className='container'>
                 <h1>UdeSA Movies</h1>
                 <Header/>
                 
-                <section className="text-center my-5">
-                    <div className="col-md-8">
-                    </div>
+                <section className="my-5">
+                    <h2 className="alert alert-warning">Todas las series</h2>
                 </section>
 
-                <section className="my-5">
-                    <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2 className="h3">Todas las series</h2>
-                    </div>
-                    <SeccionSeriesPopulares/>
+                <section className="text-center my-5">
+                    <BuscadorPeliculasSeries/>
                 </section>
+                
+                <section className = "moviesbutton">
+                    <a href="" className="btn btn-warning">Cargar más</a>
+                </section>
+
+                <SeccionSeries/>
                 <Footer/>
-            </React.Fragment>
+            </div>
         );
     }
 }

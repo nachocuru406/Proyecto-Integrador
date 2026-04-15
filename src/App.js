@@ -1,20 +1,24 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from "./Screens/Home/Home";
 import SearchResults from "./Screens/SearchResults/SearchResults";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Peliculas from "./Screens/Peliculas/Peliculas";
+import Series from "./Screens/Series/Series";
+import Registro from "./Screens/Registro/Registro"
+import Login from "./Screens/Login/Login";
+
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="container">
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/Home" component={Home}/>
           <Route path="/search/:query" component={SearchResults} />
+          <Route path="/Peliculas" component={Peliculas}/>
+          <Route path="/Series" component={Series}/>
+          <Route path="/Registro" component={Registro}/>
+          <Route path="/Login" component={Login}/>
         </Switch>
-      </div>
-    </BrowserRouter>
   );
 }
 

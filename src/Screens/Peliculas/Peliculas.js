@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
-import Buscador from '../../components/Buscador/Buscador';
-import SeccionPeliculasPopulares from '../../components/SeccionPeliculasPopulares/SeccionPeliculasPopulares';
+import BuscadorPeliculasSeries from '../../components/BuscadorPeliculasSeries/BuscadorPeliculasSeries';
+import SeccionPeliculas from '../../components/SeccionPeliculas/SeccionPeliculas.js';
 import Footer from '../../components/Footer/Footer';
 
 
@@ -11,26 +11,28 @@ class Peliculas extends Component {
         this.state = {
         };
     }
-
+    
     render() {
         return (
-            <React.Fragment>
+            <div className='container'>
                 <h1>UdeSA Movies</h1>
                 <Header/>
                 
-                <section className="text-center my-5">
-                    <div className="col-md-8">
-                    </div>
+                <section className="my-5">
+                    <h2 className="alert alert-primary">Todas las películas</h2>
                 </section>
 
-                <section className="my-5">
-                    <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2 className="h3">Todas las películas</h2>
-                    </div>
-                    <SeccionPeliculasPopulares/>
+                <section className="text-center my-5">
+                    <BuscadorPeliculasSeries/>
                 </section>
+                
+                <section className = "moviesbutton">
+                    <a href="" className="btn btn-primary">Cargar más</a>
+                </section>
+
+                <SeccionPeliculas/>
                 <Footer/>
-            </React.Fragment>
+            </div>
         );
     }
 }
