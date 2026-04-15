@@ -28,9 +28,6 @@ class Login extends Component {
       this.setState({ error: "Completa todos los campos" });
       return;
     }
-
-    
-    document.cookie = `user=${email}; path=/`;
     
     localStorage.setItem("user", email);
 
