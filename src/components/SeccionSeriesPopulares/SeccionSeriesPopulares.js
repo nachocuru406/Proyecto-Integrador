@@ -39,7 +39,7 @@ class SeccionSeriesPopulares extends Component {
                 image={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
                 title={serie.name} 
                 description={serie.overview}
-                link={`serie.html?id=${serie.id}`}
+                id={serie.id}
               />
             ))
           ) : (

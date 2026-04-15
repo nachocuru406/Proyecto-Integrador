@@ -12,12 +12,14 @@ class DetallePelicula extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    const API_KEY = "c183e27f4cd7ef72ce91a2388fa9e5ac";
+    const apiKey = "c183e27f4cd7ef72ce91a2388fa9e5ac";
 
-    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
+    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
       .then(res => res.json())
       .then(data => this.setState({ pelicula: data }))
-      .catch(err => console.log(err));
+      .catch(function(error) {
+        console.log("El error fue: " + error);
+      });
   }
 
   render() {
@@ -26,28 +28,32 @@ class DetallePelicula extends Component {
     }
 
     let pelicula = this.state.pelicula;
-
     return (
-      <>
         <div className="container">
           <h1>UdeSA Movies</h1>
-          <Header />
+          <Header/>
 
-          <h2>{pelicula.title}</h2>
+          <h2 className="alert alert-primary">{pelicula.title}</h2>
 
-          {pelicula.poster_path && (
-            <img
-              src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
-              alt={pelicula.title}
-            />
-          )}
+          <section className="row">
+            {pelicula.poster_path && (
+              <img
+                className="col-md-6"
+                src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
+                alt={pelicula.title}
+              />
+            )}
+            <section className="col-md-6 info">
+              <h3>Descripcion</h3>
+              <p className="description">{pelicula.overview}</p>
+              <p className="mt-0 mb-0"><strong>Fecha de estreno: </strong>{pelicula.release_date}</p>
+              <p className="mt-0 mb-0 length"><strong>Duración: </strong>{pelicula.runtime}</p>
+              <p className="mt-0"><strong>Puntuación: </strong>{pelicula.vote_average}</p>
+            </section>
+          </section>
 
-          <p>{pelicula.overview}</p>
-          <p>Rating: {pelicula.vote_average}</p>
-
-          <Footer />
+          <Footer/>
         </div>
-      </>
     );
   }
 }
