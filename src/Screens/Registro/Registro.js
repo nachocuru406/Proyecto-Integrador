@@ -68,35 +68,39 @@ class Registro extends Component {
     return (
       <div className="container">
         <h1>UdeSA Movies</h1>
-        <Header />
+        <Header/>
 
-        <div className="my-5">
-          <h2>Registro</h2>
-
+        <h2 className="alert alert-primary">Registro</h2>
+        
+        <div className="row justify-content-center">
+          <div className="col-md-6">
           <form onSubmit={(e) => this.handleSubmit(e)}>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="form-control my-2"
-              value={this.state.email}
-              onChange={(e) => this.handleChange(e)}
-            />
+            <div className="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Ingresá tu email"
+                className="form-control"
+                value={this.state.email}
+                onChange={(e) => this.handleChange(e)}
+              />
+            </div>
+            <div className="form-group">
+              <label>Contraseña</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Ingresá tu contraseña"
+                className="form-control"
+                value={this.state.password}
+                onChange={(e) => this.handleChange(e)}
+              />
+            </div>
 
-            <input
-              type="password"
-              name="password"
-              placeholder="Contraseña"
-              className="form-control my-2"
-              value={this.state.password}
-              onChange={(e) => this.handleChange(e)}
-            />
+            <button className="btn btn-primary btn-block">Registrase</button>
 
-            <button className="btn btn-success">Registrarse</button>
-            <p className="text-center mt-3">
-                ¿Ya tenés cuenta?{" "}
-                <Link to="/Login">Iniciar sesión</Link>
-            </p>
+            <p className="mt-3 text-center">¿Ya tenés cuenta?<Link to="/Login"> Iniciar sesión</Link></p>
 
             {this.state.error && (
               <p style={{ color: "red" }}>{this.state.error}</p>
@@ -107,8 +111,9 @@ class Registro extends Component {
             )}
           </form>
         </div>
-
-        <Footer />
+      </div>
+      
+      <Footer />
       </div>
     );
   }
