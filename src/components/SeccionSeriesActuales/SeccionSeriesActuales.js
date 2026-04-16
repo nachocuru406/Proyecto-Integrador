@@ -40,6 +40,7 @@ class SeccionSeriesActuales extends Component {
                 title={serie.name} 
                 description={serie.overview}
                 id={serie.id}
+                type="serie"
               />
             ))
           ) : (

@@ -16,7 +16,7 @@ class SeccionPeliculas extends Component {
       .then(res => res.json())
       .then((data) => {
         let peliculasFiltradas = data.results.filter(function(item, idx) {
-          return idx < 6;
+          return idx < 20;
         });
 
         this.setState({
@@ -40,6 +40,7 @@ class SeccionPeliculas extends Component {
                 title={pelicula.title}
                 description={pelicula.overview}
                 id={pelicula.id}
+                type="pelicula"
               />
             ))
           ) : (

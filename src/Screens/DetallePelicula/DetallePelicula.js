@@ -12,7 +12,7 @@ class DetallePelicula extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    const apiKey = "c183e27f4cd7ef72ce91a2388fa9e5ac";
+    const apiKey = "8ec38789ad70cc9e9d12c6e963cc77be";
 
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
       .then(res => res.json())

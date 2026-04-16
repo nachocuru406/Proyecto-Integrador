@@ -16,7 +16,7 @@ class SeccionSeries extends Component {
       .then(res => res.json())
       .then((data) => {
         let seriesFiltradas = data.results.filter(function(item, idx) {
-          return idx < 5;
+          return idx < 20;
         });
 
         this.setState({
@@ -40,6 +40,7 @@ class SeccionSeries extends Component {
                 title={serie.name} 
                 description={serie.overview}
                 id={serie.id}
+                type="serie"
               />
             ))
           ) : (

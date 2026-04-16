@@ -40,6 +40,7 @@ class SeccionPeliculasActuales extends Component {
                 title={pelicula.title}
                 description={pelicula.overview}
                 id={pelicula.id}
+                type="pelicula"
               />
             ))
           ) : (
