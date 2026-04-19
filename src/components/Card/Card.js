@@ -40,7 +40,6 @@ function Card(props) {
         <Link to={`/${props.type}/${props.id}`} className="btn btn-primary">Ver más</Link>
         {botonFav}
       </div>
-      
     </article>
   );
 }

@@ -30,8 +30,8 @@ class Favoritas extends Component {
     if (!haySesion) {
       return <p>No tenés acceso. Iniciá sesión.</p>;
     }
-    let peliculas = this.state.favoritas.filter(f => f.type === "movie");
-    let series = this.state.favoritas.filter(f => f.type === "tv");
+    let peliculas = this.state.favoritas.filter(f => f.type === "pelicula");
+    let series = this.state.favoritas.filter(f => f.type === "serie");
 
     return (
       <div className="container">
@@ -42,10 +42,13 @@ class Favoritas extends Component {
           {peliculas.length > 0 ? (
             peliculas.map(p => (
               <div className="col-md-3" key={p.id}>
-                <img src={p.image} alt={p.title} className="img-fluid" />
-                <h5>{p.title}</h5>
-                <Link to={`/movie/${p.id}`} className="btn btn-primary">Ver más</Link>
-                <button className="btn btn-danger mt-2" onClick={() => this.eliminarFavorito(p.id)}>Eliminar</button>
+                <img src={p.image} alt={p.title} className="card-img-top"/>
+                <div className="cardBody">
+                  <h5 className="card-title">{p.title}</h5>
+                  <p className="card-text">{p.description}</p>
+                  <Link to={`/movie/${p.id}`} className="btn btn-primary">Ver más</Link>
+                  <button className="btn btn-outline-danger" onClick={() => this.eliminarFavorito(p.id)}>💔</button>
+                </div>
               </div>
             ))
           ) : (
@@ -59,10 +62,13 @@ class Favoritas extends Component {
           {series.length > 0 ? (
             series.map(s => (
               <div className="col-md-3" key={s.id}>
-                <img src={s.image} alt={s.title} className="img-fluid" />
-                <h5>{s.title}</h5>
-                <Link to={`/serie/${s.id}`} className="btn btn-primary">Ver más</Link>
-                <button className="btn btn-danger mt-2" onClick={() => this.eliminarFavorito(s.id)}>Eliminar</button>
+                <img src={s.image} alt={s.title} className="card-img-top"/>
+                <div className="cardBody">
+                  <h5>{s.title}</h5>
+                  <p className="card-text">{s.description}</p>
+                  <Link to={`/serie/${s.id}`} className="btn btn-primary">Ver más</Link>
+                  <button className="btn btn-outline-danger" onClick={() => this.eliminarFavorito(s.id)}>💔</button>
+                </div>
               </div>
             ))
           ) : (
