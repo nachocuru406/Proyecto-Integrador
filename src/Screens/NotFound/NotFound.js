@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 function NotFound() {
   return (
-    <div className="container text-center">
+    <div className="container">
       <h1>UdeSA Movies</h1>
       <Header/>
-      <div className="my-5">
+      <div className="my-5 text-center">
         <h2 className="alert alert-danger">404 - Página no encontrada</h2>
         <p>La página que estás buscando no existe.</p>
         <Link to="/" className="btn btn-primary">Volver al Home</Link>

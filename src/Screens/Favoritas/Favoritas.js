@@ -49,7 +49,9 @@ class Favoritas extends Component {
               </div>
             ))
           ) : (
-            <p>No hay películas favoritas</p>
+            <div className="container">
+              <p>No hay películas favoritas</p>
+            </div>
           )}
         </div>
         <h2 className="alert alert-warning mt-4">Series Favoritas</h2>
@@ -64,7 +66,9 @@ class Favoritas extends Component {
               </div>
             ))
           ) : (
-            <p>No hay series favoritas</p>
+            <div className="container">
+              <p>No hay series favoritas</p>
+            </div>
           )}
         </div>
         <Footer/>
