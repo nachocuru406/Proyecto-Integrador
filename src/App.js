@@ -8,6 +8,7 @@ import Registro from "./Screens/Registro/Registro"
 import Login from "./Screens/Login/Login";
 import DetallePelicula from "./Screens/DetallePelicula/DetallePelicula";
 import DetalleSerie from "./Screens/DetalleSerie/DetalleSerie";
+import NotFound from "./Screens/NotFound/NotFound";
 
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Login" component={Login}/>
           <Route path="/pelicula/:id" component={DetallePelicula}/>
           <Route path="/serie/:id" component={DetalleSerie}/>
+          <Route component={NotFound}/>
         </Switch>
   );
 }
