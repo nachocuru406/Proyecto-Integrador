@@ -8,7 +8,6 @@ function Header() {
   let haySesion = cookies.get("user-auth-cookie");
   let favoritasLink = null;
   let authLinks = null;
-
   if (haySesion) {
     favoritasLink = (
       <li className="nav-item">
@@ -31,23 +30,17 @@ function Header() {
   return (
     <nav>
       <ul className="nav nav-tabs my-4">
-
         <li className="nav-item">
           <Link className="nav-link" to="/home">Home</Link>
         </li>
-
         <li className="nav-item">
           <Link className="nav-link" to="/peliculas">Peliculas</Link>
         </li>
-
         <li className="nav-item">
           <Link className="nav-link" to="/series">Series</Link>
         </li>
-
-        {/* 👉 render */}
         {favoritasLink}
         {authLinks}
-
       </ul>
     </nav>
   );

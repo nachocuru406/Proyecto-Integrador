@@ -53,7 +53,6 @@ class Registro extends Component {
 
     usuarios.push(nuevoUsuario);
 
- 
     localStorage.setItem("users", JSON.stringify(usuarios));
 
     this.setState({
@@ -69,9 +68,7 @@ class Registro extends Component {
       <div className="container">
         <h1>UdeSA Movies</h1>
         <Header/>
-
         <h2 className="alert alert-primary">Registro</h2>
-        
         <div className="row justify-content-center">
           <div className="col-md-6">
           <form onSubmit={(e) => this.handleSubmit(e)}>
@@ -97,23 +94,18 @@ class Registro extends Component {
                 onChange={(e) => this.handleChange(e)}
               />
             </div>
-
             <button className="btn btn-primary btn-block">Registrase</button>
-
             <p className="mt-3 text-center">¿Ya tenés cuenta?<Link to="/Login"> Iniciar sesión</Link></p>
-
             {this.state.error && (
               <p style={{ color: "red" }}>{this.state.error}</p>
             )}
-
             {this.state.success && (
               <p style={{ color: "green" }}>{this.state.success}</p>
             )}
           </form>
         </div>
       </div>
-      
-      <Footer />
+      <Footer/>
       </div>
     );
   }

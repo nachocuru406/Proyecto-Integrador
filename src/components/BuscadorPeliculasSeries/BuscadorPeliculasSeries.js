@@ -8,12 +8,10 @@ class BuscadorPeliculasSeries extends Component {
         valor: ''
     };
   }
-
   evitarSubmit(event) {
     event.preventDefault();
     this.props.history.push(`/search/${this.state.valor}`);
   }
-
   controlarCambios(event) {
     this.setState({valor: event.target.value});
   }

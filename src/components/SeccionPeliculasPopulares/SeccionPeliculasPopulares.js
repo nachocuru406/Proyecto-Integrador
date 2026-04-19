@@ -11,14 +11,12 @@ class SeccionPeliculasPopulares extends Component {
 
   componentDidMount() {
     const apiKey = "8ec38789ad70cc9e9d12c6e963cc77be";
-
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
       .then(res => res.json())
       .then((data) => {
         let peliculasFiltradas = data.results.filter(function(item, idx) {
           return idx < 4;
         });
-
         this.setState({
           peliculas: peliculasFiltradas
         });

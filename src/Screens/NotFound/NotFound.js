@@ -7,17 +7,13 @@ function NotFound() {
   return (
     <div className="container text-center">
       <h1>UdeSA Movies</h1>
-      <Header />
-
+      <Header/>
       <div className="my-5">
         <h2 className="alert alert-danger">404 - Página no encontrada</h2>
-
         <p>La página que estás buscando no existe.</p>
-
         <Link to="/" className="btn btn-primary">Volver al Home</Link>
       </div>
-
-      <Footer />
+      <Footer/>
     </div>
   );
 }

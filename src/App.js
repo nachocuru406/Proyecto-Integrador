@@ -9,6 +9,7 @@ import Login from "./Screens/Login/Login";
 import DetallePelicula from "./Screens/DetallePelicula/DetallePelicula";
 import DetalleSerie from "./Screens/DetalleSerie/DetalleSerie";
 import NotFound from "./Screens/NotFound/NotFound";
+import Favoritas from "./Screens/Favoritas/Favoritas";
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/search/:query" component={SearchResults}/>
           <Route path="/Peliculas" component={Peliculas}/>
           <Route path="/Series" component={Series}/>
+          <Route path="/Favoritas" component={Favoritas}/>
           <Route path="/Registro" component={Registro}/>
           <Route path="/Login" component={Login}/>
           <Route path="/pelicula/:id" component={DetallePelicula}/>

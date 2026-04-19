@@ -17,19 +17,15 @@ class Series extends Component {
             <div className='container'>
                 <h1>UdeSA Movies</h1>
                 <Header/>
-                
                 <section className="my-5">
                     <h2 className="alert alert-warning">Todas las series</h2>
                 </section>
-
                 <section className="text-center my-5">
                     <BuscadorPeliculasSeries/>
                 </section>
-                
                 <section className = "moviesbutton">
                     <a href="" className="btn btn-warning">Cargar más</a>
                 </section>
-
                 <SeccionSeries/>
                 <Footer/>
             </div>

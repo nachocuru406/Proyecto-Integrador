@@ -11,14 +11,12 @@ class SeccionSeries extends Component {
 
   componentDidMount() {
     const apiKey = "8ec38789ad70cc9e9d12c6e963cc77be";
-
     fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`)
       .then(res => res.json())
       .then((data) => {
         let seriesFiltradas = data.results.filter(function(item, idx) {
           return idx < 20;
         });
-
         this.setState({
           series: seriesFiltradas
         });

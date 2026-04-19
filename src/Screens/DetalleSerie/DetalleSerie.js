@@ -32,9 +32,7 @@ class DetalleSerie extends Component {
         <div className="container">
           <h1>UdeSA Movies</h1>
           <Header/>
-
           <h2 className="alert alert-warning">{serie.name}</h2>
-
           <section className="row">
             <section className="col-md-6 info">
               <h3>Descripcion</h3>
@@ -51,7 +49,6 @@ class DetalleSerie extends Component {
               />
             )}
           </section>
-
           <Footer/>
         </div>
     );

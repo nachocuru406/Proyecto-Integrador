@@ -20,26 +20,21 @@ class Home extends Component {
             <div className='container'>
                 <h1>UdeSA Movies</h1>
                 <Header/>
-
                 <section className="text-center my-5">
                     <Buscador/>
                 </section>
-
                 <section className="my-5">
                     <h2 className="alert alert-primary">Popular movies this week</h2>
                     <SeccionPeliculasPopulares/>
                 </section>
-
                 <section className="my-5">
                     <h2 className="alert alert-primary">Movies now playing</h2>
                     <SeccionPeliculasActuales/>
                 </section>
-
                 <section className="my-5">
                     <h2 className="alert alert-warning">Popular TV shows this week</h2>
                     <SeccionSeriesPopulares/>
                 </section>
-
                 <section className="my-5">
                     <h2 className="alert alert-warning">TV shows airing today</h2>
                     <SeccionSeriesActuales/>

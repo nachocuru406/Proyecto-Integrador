@@ -32,9 +32,7 @@ class DetallePelicula extends Component {
         <div className="container">
           <h1>UdeSA Movies</h1>
           <Header/>
-
           <h2 className="alert alert-primary">{pelicula.title}</h2>
-
           <section className="row">
             {pelicula.poster_path && (
               <img
@@ -51,7 +49,6 @@ class DetallePelicula extends Component {
               <p className="mt-0"><strong>Puntuación: </strong>{pelicula.vote_average}</p>
             </section>
           </section>
-
           <Footer/>
         </div>
     );

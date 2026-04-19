@@ -41,7 +41,6 @@ class SearchResults extends Component {
       <div className="container">
         <h1>UdeSA Movies</h1>
         <Header/>
-
         <section className="my-5">
           <h2 className="alert alert-primary">Resultados para: {this.props.match.params.query}</h2>
           {this.state.cargando ? (
@@ -66,7 +65,6 @@ class SearchResults extends Component {
           </div>
         )}
       </section>
-        
       <Footer/>
       </div>
     );

@@ -53,10 +53,8 @@ class Login extends Component {
     return (
       <div className="container">
         <h1>UdeSA Movies</h1>
-        <Header />
-
+        <Header/>
         <h2 className="alert alert-primary">Iniciar sesión</h2>
-
         <div className="row justify-content-center">
           <div className="col-md-6">
             <form onSubmit={(e) => this.handleSubmit(e)}>
@@ -78,18 +76,15 @@ class Login extends Component {
                   onChange={(e) => this.handleChange(e)}
                 />
               </div>
-
               <button className="btn btn-primary">Iniciar sesión</button>
-
               <p className="mt-3 text-center">¿No tenés cuenta?<Link to="/Registro"> Registrarse</Link></p>
-
               {this.state.error && (
                 <p style={{ color: "red" }}>{this.state.error}</p>
               )}
             </form>
           </div>
         </div>
-        <Footer />
+        <Footer/>
       </div>
     );
   }
