@@ -46,7 +46,7 @@ class Favoritas extends Component {
                 <div className="cardBody">
                   <h5 className="card-title">{p.title}</h5>
                   <p className="card-text">{p.description}</p>
-                  <Link to={`/movie/${p.id}`} className="btn btn-primary">Ver más</Link>
+                  <Link to={`/pelicula/${p.id}`} className="btn btn-primary">Ver más</Link>
                   <button className="btn btn-outline-danger" onClick={() => this.eliminarFavorito(p.id)}>💔</button>
                 </div>
               </div>
