@@ -15,73 +15,77 @@ class Login extends Component {
       error: ""
     };
   }
-
-  handleChange(e) {
+  controlarCambiosE(event) {
     this.setState({
-      [e.target.name]: e.target.value
+      email: event.target.value
     });
   }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    const { email, password } = this.state;
-
-    if (email === "" || password === "") {
-      this.setState({ error: "Completa todos los campos" });
+  controlarCambiosP(event) {
+    this.setState({
+      password: event.target.value
+    });
+  }
+  submit(event) {
+    event.preventDefault();
+    if (this.state.email === "" || this.state.password === "") {
+      this.setState({ error: "Debes completar todos los campos" });
       return;
     }
-
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    let user = users.find(
-      (u) => u.email === email && u.password === password
-    );
-
-    if (user) {
-      cookies.set("user-auth-cookie", user.email, {
-        path: "/"
+    if (!this.state.email.includes("@")) {
+      this.setState({ error: "Email mal formateado" });
+      return;
+    }
+    let usersStorage = localStorage.getItem("users");
+    if (usersStorage != null) {
+      let usersParseado = JSON.parse(usersStorage);
+            let usuarioEncontrado = usersParseado.filter((usuario) => {
+        return usuario.email === this.state.email && usuario.password === this.state.password;
       });
-
-      this.props.history.push("/");
+      if (usuarioEncontrado.length > 0) {
+        cookies.set("session", this.state.email, { path: "/" });
+        this.props.history.push("/");
+      } else {
+        this.setState({ error: "Credenciales inválidas" });
+      }
     } else {
-      this.setState({ error: "Usuario o contraseña incorrectos" });
+      this.setState({ error: "No existen usuarios registrados" });
     }
   }
 
   render() {
     return (
       <div className="container">
-        <h1>UdeSA Movies</h1>
         <Header/>
         <h2 className="alert alert-primary">Iniciar sesión</h2>
         <div className="row justify-content-center">
           <div className="col-md-6">
-            <form onSubmit={(e) => this.handleSubmit(e)}>
+            <form onSubmit={(event) => this.submit(event)}>
               <div className="form-group">
-                <label>Email</label>
+                <label>Email:</label>
                 <input
                   type="email"
-                  name="email"
                   className="form-control"
-                  onChange={(e) => this.handleChange(e)}
+                  placeholder="Ingresá tu email"
+                  value={this.state.email}
+                  onChange={(event) => this.controlarCambiosE(event)}
                 />
               </div>
               <div className="form-group">
-                <label>Contraseña</label>
+                <label>Contraseña:</label>
                 <input
                   type="password"
-                  name="password"
                   className="form-control"
-                  onChange={(e) => this.handleChange(e)}
+                  placeholder="Ingresá tu contraseña"
+                  value={this.state.password}
+                  onChange={(event) => this.controlarCambiosP(event)}
                 />
               </div>
-              <button className="btn btn-primary">Iniciar sesión</button>
-              <p className="mt-3 text-center">¿No tenés cuenta?<Link to="/Registro"> Registrarse</Link></p>
-              {this.state.error && (
-                <p style={{ color: "red" }}>{this.state.error}</p>
-              )}
+              <button type="submit" className="btn btn-primary btn-block">Iniciar sesión</button>
+              {this.state.error !== "" ? (
+                <p className="mt-3 text-danger">{this.state.error}</p>
+              ) : null}
             </form>
+            <p className="mt-3 text-center">¿No tenés cuenta?<Link to="/Registro"> Registrarse</Link></p>
           </div>
         </div>
         <Footer/>
