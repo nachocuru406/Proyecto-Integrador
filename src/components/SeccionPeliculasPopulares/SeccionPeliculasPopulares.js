@@ -1,53 +1,44 @@
-import React, { Component } from 'react';
+import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 
-class SeccionPeliculasPopulares extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      peliculas: []
-    };
-  }
 
-  componentDidMount() {
+function SeccionPeliculasPopulares() {
+	const [peliculas, setPeliculas] = useState([]);
+  useEffect(() => {
     const apiKey = "8ec38789ad70cc9e9d12c6e963cc77be";
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`)
       .then(res => res.json())
       .then((data) => {
-        let peliculasFiltradas = data.results.filter(function(item, idx) {
-          return idx < 4;
+      let peliculasFiltradas = data.results.filter(function(item, idx) {
+        return idx < 4;
         });
-        this.setState({
-          peliculas: peliculasFiltradas
-        });
+        setPeliculas(peliculasFiltradas);
       })
       .catch(function(error) {
         console.log("El error fue: " + error);
       });
-  }
+}, []);
 
-   render() {
-    return (
-      <div className='container'>
-        <section className="row cards cards4">
-          {this.state.peliculas.length > 0 ? (
-            this.state.peliculas.map(pelicula => (
-              <Card
-                key={pelicula.id}
-                image={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
-                title={pelicula.title}
-                description={pelicula.overview}
-                id={pelicula.id}
-                type="pelicula"
-              />
-            ))
-          ) : (
-            <p>Cargando...</p>
-          )}
+return (
+  <div className='container'>
+    <section className="row cards cards4">
+       {peliculas.length > 0 ? (
+        peliculas.map(pelicula => (
+        <Card
+          key={pelicula.id}
+          image={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
+          title={pelicula.title}
+          description={pelicula.overview}
+          id={pelicula.id}
+          type="pelicula"
+        />
+        ))
+        ) : (
+          <p>Cargando...</p>
+        )}
         </section>
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default SeccionPeliculasPopulares;

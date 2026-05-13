@@ -1,53 +1,43 @@
-import React, { Component } from 'react';
+import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 
-class SeccionPeliculas extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      peliculas: []
-    };
-  }
-
-  componentDidMount() {
+function SeccionPeliculas() {
+  const [peliculas, setPeliculas] = useState([]);
+  useEffect(() => {
     const apiKey = "8ec38789ad70cc9e9d12c6e963cc77be";
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`)
-      .then(res => res.json())
-      .then((data) => {
-        let peliculasFiltradas = data.results.filter(function(item, idx) {
-          return idx < 20;
-        });
-        this.setState({
-          peliculas: peliculasFiltradas
-        });
-      })
-      .catch(function(error) {
-        console.log("El error fue: " + error);
+    .then(res => res.json())
+    .then((data) => {
+      let peliculasFiltradas = data.results.filter(function(item, idx) {
+        return idx < 20;
       });
-  }
+      setPeliculas(peliculasFiltradas);
+    })
+    .catch(function(error) {
+      console.log("El error fue: " + error);
+    });
+    }, []);
 
-   render() {
-    return (
-      <div className='container'>
-        <section className="row cards cards6">
-          {this.state.peliculas.length > 0 ? (
-            this.state.peliculas.map(pelicula => (
-              <Card
-                key={pelicula.id}
-                image={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
-                title={pelicula.title}
-                description={pelicula.overview}
-                id={pelicula.id}
-                type="pelicula"
-              />
-            ))
-          ) : (
-            <p>Cargando...</p>
-          )}
-        </section>
-      </div>
-    );
-  }
+return (
+  <div className='container'>
+    <section className="row cards cards6">
+      {peliculas.length > 0 ?
+      peliculas.map(pelicula => (
+        <Card
+          key={pelicula.id}
+          image={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
+          title={pelicula.title}
+          description={pelicula.overview}
+          id={pelicula.id}
+          type="pelicula"
+        />
+      ))
+      :
+        <p>Cargando...</p>
+      }
+    </section>
+  </div>
+  );
 }
 
 export default SeccionPeliculas;
