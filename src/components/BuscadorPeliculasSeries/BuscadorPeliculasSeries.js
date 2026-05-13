@@ -1,29 +1,35 @@
-import React, { Component } from 'react';
+import { useState } from "react";
 import { withRouter } from "react-router-dom";
 
-class BuscadorPeliculasSeries extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        valor: ''
-    };
-  }
-  evitarSubmit(event) {
-    event.preventDefault();
-    this.props.history.push(`/search/${this.state.valor}`);
-  }
-  controlarCambios(event) {
-    this.setState({valor: event.target.value});
-  }
+function BuscadorPeliculasSeries(props) {
 
-  render() {
+    const [valor, setValor] = useState("");
+
+    function evitarSubmit(event) {
+        event.preventDefault();
+
+        props.history.push(`/search/${valor}`);
+    }
+
+    function controlarCambios(event) {
+        setValor(event.target.value);
+    }
+
     return (
-    <form className="filter-form px-0 mb-3" onSubmit={(event)=>this.evitarSubmit(event)}>
-        <input type="text" placeholder="Buscar dentro de la lista" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
-    </form>
-    );
-  }
-}
+        <form
+            className="filter-form px-0 mb-3"
+            onSubmit={evitarSubmit}
+        >
 
+            <input
+                type="text"
+                placeholder="Buscar dentro de la lista"
+                onChange={controlarCambios}
+                value={valor}
+            />
+
+        </form>
+    );
+}
 
 export default withRouter(BuscadorPeliculasSeries);
